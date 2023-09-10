@@ -10,6 +10,40 @@
     <a href="first.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Let's meet!</a><br>
     <a href="second.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Text styles</a><br>
 
+    <p style="color: aliceblue; text-align: center; font-size: 25px; font-weight: bold; margin-bottom: 15px;">Here you can enjoy some media files)</p>
 
-</body>
+    <p style="color: yellow; font-size: 25px; font-weight: bold; margin-bottom: 15px;">Here some pictures:</p>
+
+    <img src="https://i.pinimg.com/564x/6b/cb/89/6bcb898497c559ad75a6fe949b106e6c.jpg" alt="cars" width="128" height="256">
+    <img src="https://i.pinimg.com/564x/ab/e0/57/abe05703745dd0060cc26edea8ee575b.jpg" alt="porshe" width="128" height="128">
+    <img src="blueCar.jpeg" alt="blue porshe" width="128" height="200">
+    <img src="violetCar.jpeg" alt="blue porshe" width="128" height="200">
+    <img src="https://i.pinimg.com/564x/c4/21/8e/c4218eebc6b506a9bd6f51d96bc5b5d3.jpg" alt="pink car" width="158" height="200"><br>
+    <br><br>
+
+    <p style="color: yellow; font-size: 25px; font-weight: bold; margin-bottom: 15px;">Here some videos:</p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_XqUpE06pyc?si=yaF52b9NgzEdAp0w" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+    clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br><br>
+    
+    <video id="video1" width="420"><source src="car.mp4" type="video/mp4"></video><br>
+    <button onclick="playPause()">Play/Pause</button><br><br><br>
+
+    <p style="color: yellow; font-size: 25px; font-weight: bold; margin-bottom: 15px;">Here a audio player:</p>
+    <audio controls><source src="song.mp3" type="audio/mpeg"></audio>
+
+    <script> 
+        var video = document.getElementById("video1"); 
+        function playPause() { 
+            if (video.paused) 
+            video.play(); 
+            else 
+            video.pause(); 
+        }
+    </script> 
+
+    <br><br>
+    <footer style="background-color: #ffffff4a; color: #fff; text-align: center; padding: 3px; font-size: 12px;"><p style="margin-bottom: 5px;">GOOD LUCK!</p> &copy;2023</footer>
+    </body>
 </html> 
