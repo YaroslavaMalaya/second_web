@@ -13,7 +13,9 @@
 </head>
 
 <body style="background-color:rgb(125, 112, 132); font-family: 'Montserrat', sans-serif;">
-    <a href="index.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Main page</a>
+    <a href="index.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Main page</a><br>
+    <a href="second.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Text styles</a><br>
+    <a href="third.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Media</a><br>
 
     <p style="color: aliceblue; text-align: center; font-size: 25px; font-weight: bold; margin-bottom: 5px;">Let's meet!</p>
     <h1 style="color: aliceblue; text-align: center; font-size: 15px; font-weight: bold; ">fill all the boxes with your answers</h1>
@@ -88,7 +90,7 @@
             var name = document.getElementById('input-name').value;
             var age = document.getElementById('input-age').value;
             var seasons = document.getElementsByName('fav_season');
-            var allFlowers = document.querySelectorAll('input[type="checkbox"][name="fav_flower"]:checked');
+            var allFlowers = document.getElementsByName('fav_flower');
             var filename = document.getElementById('input-file').value;
             var season = "";
             var flowers = [];
@@ -104,9 +106,11 @@
 
             for (var i = 0; i < allFlowers.length; i++) 
             {
-                flowers.push(allFlowers[i].value);
+                if (allFlowers[i].checked) 
+                {
+                    flowers.push(allFlowers[i].value);
+                }
             }
-
 
             document.getElementById('table-name').textContent = name;
             document.getElementById('table-age').textContent = age;
