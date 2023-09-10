@@ -3,10 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <title>Let's meet!</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid white;
+          border-style: groove;
+        }
+        </style>
 </head>
 
-<body style="background-color:rgb(125, 112, 132)">
-    <a href="index.html">Main page</a>
-    
+<body style="background-color:rgb(125, 112, 132); font-family: 'Montserrat', sans-serif;">
+    <a href="index.html" style="color: aliceblue; font-weight: bold; font-size: 15px;">Main page</a>
+
+    <p style="color: aliceblue; text-align: center; font-size: 25px; font-weight: bold; margin-bottom: 5px;">Let's meet!</p>
+    <h1 style="color: aliceblue; text-align: center; font-size: 15px; font-weight: bold; ">fill all the boxes with your answers</h1>
+
+    <form>
+        <div>
+            <fieldset style="border-color: aliceblue;">
+            <legend style="color:aliceblue;">Personalia:</legend>
+            <label for="input-name" style="color: yellow; font-size: 15px; font-weight: bold;">First name:</label>
+            <input type="text" value="" placeholder="Enter your name." style="color: darkblue; margin-bottom: 10px;" id="input-name"><br>
+            <label for="input-age" style="color: yellow; font-size: 15px; font-weight: bold;">Age:</label>
+            <input type="number" value="" placeholder="Enter your age." style="color: darkblue;" id="input-age">
+
+            <h1 style="color: yellow; font-size: 15px; font-weight: bold; margin-bottom: 10px;">Choose your favorite season:</h1>
+            <input type="radio" id="winter" name="fav_season" value="Winter">
+            <label for="winter" style="color: aliceblue; font-size: 15px; font-weight: bold;">Winter</label><br>
+            <input type="radio" id="spring" name="fav_season" value="Spring">
+            <label for="spring" style="color: aliceblue; font-size: 15px; font-weight: bold;">Spring</label><br>
+            <input type="radio" id="summer" name="fav_season" value="Summer">
+            <label for="summer" style="color: aliceblue; font-size: 15px; font-weight: bold;">Summer</label><br>
+            <input type="radio" id="autumn" name="fav_season" value="Autumn">
+            <label for="autumn" style="color: aliceblue; font-size: 15px; font-weight: bold;">Autumn</label><br>
+
+            <h1 style="color: yellow; font-size: 15px; font-weight: bold; margin-bottom: 10px;">Choose your favorite flowers:</h1>
+            <input type="checkbox" id="chrys" name="fav_flower" value="Chrysanthemum">
+            <label for="chrys" style="color: aliceblue; font-size: 15px; font-weight: bold;">Chrysanthemum</label>
+            <input type="checkbox" id="iris" name="fav_flower" value="Iris" style="margin-left: 20px;">
+            <label for="iris" style="color: aliceblue; font-size: 15px; font-weight: bold;">Iris</label>
+            <input type="checkbox" id="orchid" name="fav_flower" value="Orchid" style="margin-left: 20px;">
+            <label for="orchid" style="color: aliceblue; font-size: 15px; font-weight: bold;">Orchid</label>
+            <input type="checkbox" id="peony" name="fav_flower" value="Peony" style="margin-left: 20px;">
+            <label for="peony" style="color: aliceblue; font-size: 15px; font-weight: bold;">Peony</label>
+            <input type="checkbox" id="tulip" name="fav_flower" value="Tulip" style="margin-left: 20px;">
+            <label for="tulip" style="color: aliceblue; font-size: 15px; font-weight: bold;">Tulip</label>
+            <input type="checkbox" id="rose" name="fav_flower" value="Rose" style="margin-left: 20px;">
+            <label for="rose" style="color: aliceblue; font-size: 15px; font-weight: bold;">Rose</label><br><br>
+
+            <label for="input-file" style="color: yellow; font-size: 15px; font-weight: bold;">Select a file:</label>
+            <input type="file" id="input-file" name="myfile" style="color: white;"><br><br>
+            
+            <button type="button" onclick="submitForm()">Submit</button>
+        </fieldset>
+
+        <p style="color: aliceblue; text-align: center;  font-size: 25px; font-weight: bold; margin-bottom: 10px;">Your answers:</p>
+
+        <table style="color: aliceblue; font-weight: bold;">
+            <tr>
+                <td>Name:</td>
+                <td id="table-name"></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td id="table-age"></td>
+            </tr>
+            <tr>
+                <td>Favorite season:</td>
+                <td id="table-season"></td>
+            </tr>
+            <tr>
+                <td>Favorite flowers:</td>
+                <td id="table-flowers"></td>
+            </tr>
+            <tr>
+                <td>Your file is:</td>
+                <td id="table-file"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById('input-name').value;
+            var age = document.getElementById('input-age').value;
+            var seasons = document.getElementsByName('fav_season');
+            var allFlowers = document.querySelectorAll('input[type="checkbox"][name="fav_flower"]:checked');
+            var filename = document.getElementById('input-file').value;
+            var season = "";
+            var flowers = [];
+
+            for (var i = 0; i < seasons.length; i++) 
+            {
+                if (seasons[i].checked) 
+                {
+                    season = seasons[i].value;
+                    break;
+                }
+            }
+
+            for (var i = 0; i < allFlowers.length; i++) 
+            {
+                flowers.push(allFlowers[i].value);
+            }
+
+
+            document.getElementById('table-name').textContent = name;
+            document.getElementById('table-age').textContent = age;
+            document.getElementById('table-season').textContent = season;
+            document.getElementById('table-flowers').textContent = flowers.join(', ');
+            document.getElementById('table-file').textContent = filename;
+        }
+    </script>
+    </div>
 </body>
 </html>
